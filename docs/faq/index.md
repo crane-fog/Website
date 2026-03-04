@@ -101,3 +101,51 @@ int main()
 [使用生成式人工智能](/syllabus/#使用生成式人工智能)
 
 该页面中对**是否允许使用、责任边界、禁止事项以及使用建议**都有明确说明，请在使用前务必仔细阅读。
+
+## 其他问题
+
+### Windows SDK 缺失
+
+该问题解决方案适用于以下报错信息：
+
+> error C1083: 无法打开包括文件: "float.h"：No such file or directory
+
+> error MSB8036: 找不到 Windows SDK 版本 10.0.xxxxx.0。请安装所需版本的 Windows SDK，或者在项目属性页中或通过右键单击解决方案并选择“重定解决方案目标”来更改 SDK 版本。
+
+有两种可能：
+
+::: details 在 Visual Studio 安装过程中没有选择安装 Windows SDK 组件。
+
+   - 按 win 键打开“开始”菜单，搜索框中输入 `Visual Studio Installer`，打开
+
+      ![open VS installer](open-VS-installer.png)
+   
+   - 选择 `修改`
+
+      ![modify VS](modify-VS.png)
+   
+   - 在打开的菜单中，确认右侧 `使用 C++ 的桌面开发-可选` 中至少有一个 `Windows 11 SDK` 选项被勾选。如果没有，将它勾选上，然后点击右下角的 `修改` 按钮安装，结束。
+
+      ![VS Windows SDK](VS-Windows-SDK.png)
+:::
+
+::: details 手动删除或移动了 Windows Kits 文件夹的位置，或因为各种原因导致 Windows SDK 未正常安装。
+
+   - 如果你能想起来自己删除或移动过 Windows Kits 文件夹，请将它放回原位，路径通常是 `C:\Program Files (x86)\Windows Kits` 或 `D:\Windows Kits`。
+
+   - 如果你不记得进行过相关操作/找不到 Windows Kits 文件夹/放回原位后问题仍未解决。
+
+      - 打开 Windows 设置（快捷键 `Win + I`），进入 `应用-安装的应用`
+
+         ![setting application](setting-application.png)
+
+      - 搜索 Windows Software Development Kit，把这里能看到的每一项都选择卸载
+
+         ![uninstall Windows SDK](uninstall-Windows-SDK.png)
+
+      - 卸载完成后，再打开 Visual Studio Installer，选择 `更多-修复` ，这将重新安装 Windows SDK。
+
+         ![repair VS](repair-VS.png)
+:::
+
+如果在执行上述步骤过程中出现问题，或完成上述步骤后报错仍未解决，请联系助教寻求帮助。
