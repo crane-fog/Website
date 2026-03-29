@@ -228,7 +228,7 @@ const sliderPosition = ref(50)
 </script>
 
 <template>
-  <div class="w-full max-w-5xl mx-auto py-8 px-4" @paste="handlePaste" tabindex="0">
+  <div class="w-full max-w-5xl mx-auto py-8 px-4">
     <!-- 标题 -->
     <div class="text-center mb-8">
       <h2 class="text-3xl font-bold text-gray-800 dark:text-gray-100 mb-2">
